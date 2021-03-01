@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ pokemon.name }}</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    Level:{{ pokemon.level }}
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="addPokedex()" mat-stroked-button color="primary">add pokedex</button>
+    <button [routerLink]="['/pokemons', pokemon.id]" mat-stroked-button color="primary">details Pokemon</button>
+    
+  </mat-card-actions>
+</mat-card>
+
+<!--  
+<strong>{{ pokemon.type }}</strong>
+<h3>{{ pokemon.name }} </h3>
+<strong> Level:{{ pokemon.level }}</strong> 
+  <p>Habilidades: {{ pokemon.abilities }} Evoluciones:  {{ pokemon.evolutions }}</p>
+  <img [src]="pokemon.image" alt="imagenes de pokemon">
+  <button (click)="addPokedex()"  mat-stroked-button color="primary" >Agregar a pokedex</button>
+  <button [routerLink]="['/pokemons', pokemon.id]" mat-stroked-button color="primary" >Ver Pokemon</button>
+
+-->

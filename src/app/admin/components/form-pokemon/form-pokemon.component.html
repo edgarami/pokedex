@@ -1,0 +1,51 @@
+<form [formGroup]="form" (ngSubmit)="savePokemon($event)">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Pokemon</mat-card-title>
+
+    </mat-card-header>
+
+    <mat-card-content>
+     <div class="row">
+       <div class="col-xs">
+        <mat-form-field>
+          <input placeholder="Id" formControlName="id" matInput type="text">
+        </mat-form-field>
+
+       </div>
+     </div>
+
+    <div class="row">
+      <div class="col-xs">
+        <mat-form-field>
+          <input placeholder="Name" formControlName="name" matInput type="text">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs">
+        <mat-form-field>
+          <input placeholder="level" formControlName="level" matInput type="number">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs">
+        <mat-form-field>
+          <input placeholder="Abilities & evolutions" formControlName="abilities" matInput type="text">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-card-actions>
+      <button mat-raised-button color='primary' type='submit'>save</button>
+    </mat-card-actions>
+
+
+    </mat-card-content>
+</mat-card>
+  
+
+</form>
