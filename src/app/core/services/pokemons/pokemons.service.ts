@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
 import { Pokemon } from '../../../pokemon.model'
+import { pluck } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class PokemonsService {
   ) { }
 
   getAllPokemons(){
-    return this.http.get<Pokemon[]>('https://pokeapi.co/api/v2/pokemon/')
-   // return this.pokemons;
+    return this.http.get<Pokemon[]>('https://pokeapi.co/api/v2/pokemon/').pipe(pluck('results'));
+    //return results.results;
    
   }
 
