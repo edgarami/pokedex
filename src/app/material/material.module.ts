@@ -12,6 +12,15 @@ import { MatCardModule } from '@angular/material/card';
 
 
 
+
+import { LayoutModule } from '@angular/cdk/layout';
+
+
+
+
+
+
+
 @NgModule({
   declarations: [],
   imports: [
@@ -23,7 +32,9 @@ import { MatCardModule } from '@angular/material/card';
     MatSelectModule,
     MatRadioModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    LayoutModule,
+   
   ],
   exports: [
     MatButtonModule,

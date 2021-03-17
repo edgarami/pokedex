@@ -1,11 +1,30 @@
 import { isNgTemplate } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Pokemon } from './pokemon.model'
+import { HttpClient } from '@angular/common/http'
+
+import { Pokemon } from '../../../pokemon.model'
+
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonsService {
-  
+ 
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  getAllPokemons(){
+    return this.http.get<Pokemon[]>('https://pokeapi.co/api/v2/pokemon/')
+   // return this.pokemons;
+   
+  }
+
+  getPokemon(id: string){
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+    //return this.pokemons.find(item => id === item.id)
+  }
+}
+ /*
 pokemons: Pokemon[] = [
     {
       id: '1',
@@ -98,14 +117,4 @@ pokemons: Pokemon[] = [
       evolutions: 'Haunter, Gengar'
     },
   ];
-
-  constructor() { }
-
-  getAllPokemons(){
-    return this.pokemons;
-  }
-
-  getPokemon(id: string){
-    return this.pokemons.find(item => id === item.id)
-  }
-}
+*/
