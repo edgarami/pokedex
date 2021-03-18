@@ -12,7 +12,7 @@ import { Pokemon } from './../../../pokemon.model';
 })
 export class PokemonDetailComponent implements OnInit {
 
-  pokemon: Pokemon = {} as Pokemon;
+  pokemon: any 
 
   constructor(
     private route: ActivatedRoute,
@@ -23,9 +23,19 @@ export class PokemonDetailComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       console.log(params)
       const id = params.id;
-     // this.pokemon =  this.pokemonsService.getPokemon(id)!
+      this.fetchPokemon(id)
+      //this.pokemon =  this.pokemonsService.getPokemon(id)!
       
     });
+  }
+
+  fetchPokemon(id: number){
+    this.pokemonsService.getPokemon(id)
+    .subscribe(pokemon => {
+      console.log(pokemon);
+      this.pokemon = pokemon
+
+    })
   }
 
 }

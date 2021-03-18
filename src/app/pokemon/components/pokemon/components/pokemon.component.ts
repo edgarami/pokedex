@@ -11,6 +11,9 @@ import { Pokemon } from '../../../../pokemon.model'
 export class PokemonComponent {
 
  @Input() pokemon: Pokemon  = Input();
+ 
+ @Input() id: number;
+
  @Output() pokemonClicked: EventEmitter<any>  =new EventEmitter()
 
  addPokedex() {

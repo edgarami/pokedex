@@ -4,12 +4,11 @@
     <mat-card-subtitle></mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    Level:{{ pokemon.level }}
+    Level:{{ pokemon.id }}
   </mat-card-content>
   <mat-card-actions>
     <button (click)="addPokedex()" mat-stroked-button color="primary">add pokedex</button>
-    <button [routerLink]="['/pokemons', pokemon.id]" mat-stroked-button color="primary">details Pokemon</button>
-    
+    <button [routerLink]="['/pokemons', id+1]" mat-stroked-button color="primary">details Pokemon</button>
   </mat-card-actions>
 </mat-card>
 

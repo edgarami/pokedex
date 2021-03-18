@@ -5,23 +5,33 @@ import { HttpClient } from '@angular/common/http'
 import { Pokemon } from '../../../pokemon.model'
 import { pluck } from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonsService {
- 
+
+ // list : Pokemon[] = []
+
   constructor(
     private http: HttpClient
   ) { }
 
-  getAllPokemons(){
+  getAllPokemons() { 
+    //pipe.pluck accedo directamente al key que toma por parametro de un objeto 
+    //this.http.get<Pokemon[]>('https://pokeapi.co/api/v2/pokemon/').pipe(pluck('results')).subscribe( (pokemon : Pokemon[])  => this.list = pokemon )
+    
     return this.http.get<Pokemon[]>('https://pokeapi.co/api/v2/pokemon/').pipe(pluck('results'));
-    //return results.results;
+
+
+       
+    
+   
    
   }
 
-  getPokemon(id: string){
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+  getPokemon(id: number){
+     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}/`);
     //return this.pokemons.find(item => id === item.id)
   }
 }

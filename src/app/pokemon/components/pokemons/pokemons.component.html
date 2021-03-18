@@ -1,7 +1,8 @@
 <div class="pokemon-grid">
   <app-pokemon 
-   *ngFor="let pokemon of pokemons"
+   *ngFor="let pokemon of pokemons; let index = index "
    (pokemonClicked)="clickPokemon($event)"
-   [pokemon]="pokemon">
+   [pokemon]="pokemon"  [id]= "index" >
+  
   </app-pokemon>
 </div>
