@@ -1,14 +1,18 @@
 <div *ngIf="pokemon">
   <div>
-    
+    <img [src]="pokemon.image" alt="imagen de pokemon">
     <ul>
       <li> Name: {{ pokemon.name }}</li>
-      <li> Id: {{ pokemon.id }} </li>
+      <li> level: {{ pokemon.level }} </li>
+      <li> Type: {{ pokemon.type }} </li>
       
     </ul>
-    <p> altura:  {{ pokemon.heigth }}mts </p>
-    <p> altura: {{ pokemon.weigth }} cm </p>
-   
+      
+
+      <p> abilities: {{ pokemon.abilities }} </p>
+      <p> evolutions:  {{ pokemon.evolutions }} </p>
+
+      <button (click)="createPokemon()" >crear</button>
   
   </div>
 </div>

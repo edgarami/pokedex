@@ -1,17 +1,13 @@
-import { isNgTemplate } from '@angular/compiler';
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { Component, OnInit } from '@angular/core';
+import { Pokemon } from'../../../pokemon.model'
+import { PokemonsService } from './../../../core/services/pokemons/pokemons.service'
 
-import { Pokemon } from '../../../pokemon.model'
-import { pluck } from 'rxjs/operators';
-
-
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-pokemon-list',
+  templateUrl: './pokemon-list.component.html',
+  styleUrls: ['./pokemon-list.component.scss']
 })
-export class PokemonsService { 
-
-   constructor() { }
+export class PokemonListComponent implements OnInit {
 
   pokemons: Pokemon[] = [
     {
@@ -105,43 +101,20 @@ export class PokemonsService {
       evolutions: 'Haunter, Gengar'
     },
   ];
- 
-
-  getAllPokemons(): Pokemon[] {
-    return this.pokemons
-   
-  }
-
-  getPokemon(id:string) {
-    return this.pokemons.find(item =>id === item.id )
-  }
-  createPokemon(pokemon: Pokemon) {
-    return this.pokemons = [...this.pokemons, pokemon]
-
-  }
-
-}
-
-
-/* Code for rest Api
-
- // list : Pokemon[] = []
+  displayedColumns: string[] = ['id','name','level',]
 
   constructor(
-    private http: HttpClient
+    private pokemonsService: PokemonsService
   ) { }
 
-  getAllPokemons() { 
-    //pipe.pluck accedo directamente al key que toma por parametro de un objeto 
-    //this.http.get<Pokemon[]>('https://pokeapi.co/api/v2/pokemon/').pipe(pluck('results')).subscribe( (pokemon : Pokemon[])  => this.list = pokemon )
-    
-    return this.http.get<Pokemon[]>('https://pokeapi.co/api/v2/pokemon/').pipe(pluck('results'));
-
+  ngOnInit(): void {
+   // this.fetchPokemons()
   }
 
-  getPokemon(id: number){
-     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}/`);
-    //return this.pokemons.find(item => id === item.id)
-  } */
+  //fetchPokemons() {
+  // this.pokemonsService.getAllPokemons()
+   
+    
+ // }
 
-
+}

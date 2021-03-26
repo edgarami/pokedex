@@ -9,33 +9,7 @@ import { PokemonsService } from './../../../core/services/pokemons/pokemons.serv
 })
 export class PokemonsComponent implements OnInit {
   title = 'pokedex';
-  pokemons: Pokemon[] = []
-  
-  constructor(
-    private pokemonsService: PokemonsService
-  ) { }
-
-  ngOnInit()  {
-    this.fetchPokemons()
-  }
-  
-  clickPokemon(id: number) {
-    console.log('pokemon')
-    console.log(id)
-  }
-
-  fetchPokemons() {
-    this.pokemonsService.getAllPokemons()
-    .subscribe((pokemons : Pokemon[] ) => {
-      console.log(pokemons)
-      this.pokemons = pokemons;
-    })
-
-  }
-
-}
-/*
-pokemons: Pokemon[] = [
+  pokemons: Pokemon[] = [
     {
       id: '1',
       image: 'assets/images/pichu.png',
@@ -127,5 +101,34 @@ pokemons: Pokemon[] = [
       evolutions: 'Haunter, Gengar'
     },
   ];
+  
+  constructor(
+    private pokemonsService: PokemonsService
+  ) { }
+
+  ngOnInit()  {
+   // this.fetchPokemons()
+  }
+  
+  clickPokemon(id: string) {
+    console.log('pokemon')
+    console.log(id)
+  }
+ 
+
+ /* peticion a mi funcion que consulta la api
+
+  fetchPokemons() {
+    this.pokemonsService.getAllPokemons()
+    .subscribe((pokemons : Pokemon[] ) => {
+      console.log(pokemons)
+      this.pokemons = pokemons;
+    })
+
+  }*/
+
+}
+/*
+
 
 */

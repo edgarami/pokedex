@@ -1,8 +1,10 @@
 export interface Pokemon {
-  id: number;
-  name: string;
-  heigth: number;
-  weigth:number;
-  
+   id: string
+   image:string
+   name: string,
+   level: number,
+   type: string
+   abilities: string
+   evolutions: string
 
 }
