@@ -1,7 +1,18 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>{{ pokemon.name }}</mat-card-title>
-    <mat-card-subtitle></mat-card-subtitle>
+    <div *ngIf="editing" >
+      <input
+      type="text"
+      [value]="pokemon.name"
+      (input)="onNameChange(name.value)"
+      #name>
+    </div>
+    <div *ngIf="!editing">
+      <mat-card-title>{{ pokemon.name }}</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+
+    </div>
+    
   </mat-card-header>
   <mat-card-content>
     Level:{{ pokemon.level }}
@@ -9,6 +20,9 @@
   <mat-card-actions>
     <button (click)="addPokedex()" mat-stroked-button color="primary">add pokedex</button>
     <button [routerLink]="['/pokemons', pokemon.id]" mat-stroked-button color="primary">details Pokemon</button>
+    <button (click)="toggleEdit()" mat-stroked-button color="primary"> {{ editing ? 'Done' : 'Edit' }}  </button>
+    <button (click)="onRemove()" mat-raised-button color="warn"> Remove </button>
+
   </mat-card-actions>
 </mat-card>
 

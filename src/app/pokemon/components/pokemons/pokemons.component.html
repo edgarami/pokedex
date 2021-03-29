@@ -1,8 +1,14 @@
+<div>
+  <h3>lista de pokemons</h3>
+</div>
+
 <div class="pokemon-grid">
   <app-pokemon 
    *ngFor="let pokemon of pokemons;  "
    (pokemonClicked)="clickPokemon($event)"
-   [pokemon]="pokemon">
+   [pokemon]="pokemon"
+   (edit)="handleEdit($event)"
+   (remove)="handleRemove($event)">
   
   </app-pokemon>
 </div>

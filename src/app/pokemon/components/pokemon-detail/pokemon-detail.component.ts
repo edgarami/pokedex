@@ -41,6 +41,7 @@ export class PokemonDetailComponent implements OnInit {
     this.pokemonsService.createPokemon(newPokemon)
     .filter(pokemon =>{
    console.log(pokemon)
+   
     })
   
 

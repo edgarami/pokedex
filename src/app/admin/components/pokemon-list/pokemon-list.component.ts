@@ -10,7 +10,7 @@ import { PokemonsService } from './../../../core/services/pokemons/pokemons.serv
 export class PokemonListComponent implements OnInit {
 
   pokemons: Pokemon[] = [];
-  displayedColumns: string[] = ['id','name','level',]
+  displayedColumns: string[] = ['id','name','level']
 
   constructor(
     private pokemonsService: PokemonsService
@@ -26,7 +26,9 @@ export class PokemonListComponent implements OnInit {
       this.pokemons.push(pokemons)
    
     
-  })
+   })
   }
+
+
 
 }

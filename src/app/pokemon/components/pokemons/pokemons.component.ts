@@ -114,6 +114,21 @@ export class PokemonsComponent implements OnInit {
     console.log('pokemon')
     console.log(id)
   }
+  handleEdit(event: Pokemon){
+    this.pokemons = this.pokemons.map((pokemon: Pokemon)=>{
+      if(pokemon.id === event.id){
+        pokemon = Object.assign({}, pokemon,event)
+      }
+      return pokemon
+    })
+  }
+  handleRemove(event: Pokemon){
+    console.log(event)
+    this.pokemons = this.pokemons.filter((pokemon: Pokemon)=>{
+      return pokemon.id !== event.id
+    })
+  }
+
  
 
  /* peticion a mi funcion que consulta la api

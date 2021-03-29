@@ -9,8 +9,8 @@ import { pluck } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class PokemonsService { 
-
+export class PokemonsService {
+  
    constructor() { }
 
   pokemons: Pokemon[] = [
@@ -119,8 +119,9 @@ export class PokemonsService {
     return this.pokemons = [...this.pokemons, pokemon]
 
   }
-
 }
+
+
 
 
 /* Code for rest Api
