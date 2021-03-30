@@ -17,9 +17,9 @@ export class PokemonListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.fetchPokemons()
+    //this.fetchPokemons()
   }
-
+/*
   fetchPokemons() {
    this.pokemonsService.getAllPokemons()
     .map(pokemons => {
@@ -29,6 +29,6 @@ export class PokemonListComponent implements OnInit {
    })
   }
 
-
+*/
 
 }

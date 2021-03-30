@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
-import { from } from 'rxjs';
+
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -30,7 +30,8 @@ import { CoreModule  } from './core/core.module'
     SharedModule,
     BrowserAnimationsModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
