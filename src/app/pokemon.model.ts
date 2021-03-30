@@ -8,3 +8,6 @@ export interface Pokemon {
    evolutions: string
 
 }
+export interface PokemonResponse {
+   data: Pokemon[];
+}

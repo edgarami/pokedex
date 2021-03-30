@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from "rxjs/operators"; 
-import{  Observable } from 'rxjs';
 
+import{   Observable } from 'rxjs';
+//import pokedato from './pk.json'
+import { map } from "rxjs/operators";
 
-
-
+import { PokemonResponse } from '../../../pokemon.model'
 import { Pokemon } from '../../../pokemon.model'
 
-import { pluck } from 'rxjs/operators';
 
-
-const POKEMON_API: string = 'C:\Users\elleo\Documents\angular\pokedex\db.json';
-
+const POKEMON_API = '../../../../assets/pk.json';
+/*
+function delay(ms){
+  return new Promise((resolve) =>{
+    setTimeout(resolve,ms)
+  })
+}
+*/
 @Injectable({
   providedIn: 'root'
 })
@@ -27,9 +31,16 @@ export class PokemonsService {
   getAllPokemons(): Observable<Pokemon[]> {
     //return this.pokemons
     return this.http
-      .get(POKEMON_API).pipe(map((response: Response) => response.json()))
-  }
+   .get(POKEMON_API).pipe(map((response: PokemonResponse) =>  response.data))
+    
 
+  }
+  /*
+  async getAllPokemons(){
+    await delay(1000)
+    return pokedato
+  }
+  */
   getPokemon(id:string) {
     return this.pokemons.find(item =>id === item.id )
   }

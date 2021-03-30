@@ -15,7 +15,12 @@ export class PokemonsComponent implements OnInit {
   constructor(
     private pokemonsService: PokemonsService
   ) { }
-
+/*
+  async ngOnInit(){
+    const data = await this.pokemonsService.getAllPokemons()
+    this.pokemons = data.pokemons
+  }
+   */
   ngOnInit()  {
     this.pokemonsService.getAllPokemons()
     .subscribe((data: Pokemon[])=>{
@@ -23,7 +28,7 @@ export class PokemonsComponent implements OnInit {
     })
    // this.fetchPokemons()
   }
-  
+ 
   clickPokemon(id: string) {
     console.log('pokemon')
     console.log(id)
