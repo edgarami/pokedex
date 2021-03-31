@@ -34,12 +34,16 @@ export class PokemonsComponent implements OnInit {
     console.log(id)
   }
   handleEdit(event: Pokemon){
-    this.pokemons = this.pokemons.map((pokemon: Pokemon)=>{
-      if(pokemon.id === event.id){
-        pokemon = Object.assign({}, pokemon,event)
-      }
-      return pokemon
+    this.pokemonsService.updatePokemons(event)
+    .subscribe((data: Pokemon) =>{
+         this.pokemons = this.pokemons.map((pokemon: Pokemon)=>{
+          if(pokemon.id === event.id){
+            pokemon = Object.assign({}, pokemon,event)
+          }
+          return pokemon
+        })
     })
+ 
   }
   handleRemove(event: Pokemon){
     console.log(event)

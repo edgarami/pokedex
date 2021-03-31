@@ -23,11 +23,20 @@ export class PokemonDetailComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       console.log(params)
       const id = params.id;
-      //this.fetchPokemon(id)
-      this.pokemon =  this.pokemonsService.getPokemon(id)
-      
-    });
+   
+       this.fetchPokemon(id)
+    })
+    }
+
+    fetchPokemon(id: string){
+    this.pokemonsService.getPokemon(id)
+    .subscribe(pokemon => {
+      console.log(pokemon);
+      this.pokemon = pokemon
+
+    })
   }
+
    createPokemon(){
     const newPokemon: Pokemon = {
       id: "222",
@@ -46,15 +55,17 @@ export class PokemonDetailComponent implements OnInit {
   
 
   }
-/*
-  fetchPokemon(id: string){
-    this.pokemonsService.getPokemon(id)
-    .subscribe(pokemon => {
-      console.log(pokemon);
-      this.pokemon = pokemon
 
-    })
-  }
-*/
+  
+
 
 }
+
+/* this.route.params.subscribe((params: Params) => {
+      console.log(params)
+      const id = params.id;
+     
+      this.pokemon =  this.pokemonsService.getPokemon(id)
+      );
+  }
+*/

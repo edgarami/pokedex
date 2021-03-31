@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import{   Observable } from 'rxjs';
-//import pokedato from './pk.json'
+
 import { map } from "rxjs/operators";
 
 import { PokemonResponse } from '../../../pokemon.model'
@@ -10,13 +10,7 @@ import { Pokemon } from '../../../pokemon.model'
 
 
 const POKEMON_API = '../../../../assets/pk.json';
-/*
-function delay(ms){
-  return new Promise((resolve) =>{
-    setTimeout(resolve,ms)
-  })
-}
-*/
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,18 +25,21 @@ export class PokemonsService {
   getAllPokemons(): Observable<Pokemon[]> {
     //return this.pokemons
     return this.http
-   .get(POKEMON_API).pipe(map((response: PokemonResponse) =>  response.data))
+   .get(POKEMON_API).pipe(map((response: PokemonResponse) =>  response.pokemons))
+
+  }
+  updatePokemons(pokemon: Pokemon): Observable<Pokemon>{
+    //return this.pokemons
+    return this.http
+   .put(`${POKEMON_API}/${pokemon.id}`, pokemon).pipe(map((response: Pokemon) =>  response))
     
 
   }
-  /*
-  async getAllPokemons(){
-    await delay(1000)
-    return pokedato
-  }
-  */
-  getPokemon(id:string) {
-    return this.pokemons.find(item =>id === item.id )
+
+  getPokemon(id:string): Observable<Pokemon> {
+    
+    return this.http.get<Pokemon>(`${POKEMON_API}/${id}`)
+    .pipe(map((response: Pokemon)=> response))
   }
   createPokemon(pokemon: Pokemon) {
     return this.pokemons = [...this.pokemons, pokemon]

@@ -9,5 +9,5 @@ export interface Pokemon {
 
 }
 export interface PokemonResponse {
-   data: Pokemon[];
+   pokemons: Pokemon[];
 }
